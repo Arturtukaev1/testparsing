@@ -3,7 +3,7 @@ const form = document.getElementById('info-form');
 const thankYouMessage = document.getElementById('thank-you-message');
 
 // URL вашего веб-приложения Google Apps Script
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwEjPUuqmLVh2l6ohkwqjhUo8G8OUTYTlrEnpEwmKiOkcjzzDrvfqFYHx7Y-ZOwjkBMdA/exec'; // Замените на ваш URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbziIrH4TS00Q1LNCxZmeKbYB0Q5q6wFNwcp6T-_Ro0oKOpLfxCcBp3oL-iSPe1ypUeolA/exec'; // Замените на ваш URL
 
 // Добавляем обработчик события отправки формы
 form.addEventListener('submit', function (event) {
