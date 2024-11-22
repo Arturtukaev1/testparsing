@@ -21,25 +21,17 @@ form.addEventListener('submit', function (event) {
     fetch(scriptURL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData), // Конвертируем данные в формат JSON
+        body: JSON.stringify(formData),
+        mode: 'no-cors', // Устанавливаем режим no-cors
     })
         .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // Парсим ответ от сервера в JSON
-        })
-        .then((data) => {
-            if (data.status === 'success') {
-                // Если сервер ответил "успех", показываем сообщение благодарности
-                form.style.display = 'none';
-                thankYouMessage.style.display = 'block';
-            } else {
-                alert('Server returned an error: ' + data.message);
-            }
+            // В режиме no-cors ответ недоступен, но запрос будет отправлен
+            console.log('Request sent. Response status cannot be read in no-cors mode.');
+            // Симулируем успех для отображения сообщения благодарности
+            form.style.display = 'none';
+            thankYouMessage.style.display = 'block';
         })
         .catch((error) => {
-            // Обработка ошибок, если fetch не сработал
             console.error('Fetch error:', error.message);
             alert('Error: ' + error.message);
         });
